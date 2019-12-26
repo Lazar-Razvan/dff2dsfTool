@@ -31,7 +31,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SelectFileButton = new System.Windows.Forms.Button();
             this.SelectDestinationButton = new System.Windows.Forms.Button();
-            this.SourceFilePathLabel = new System.Windows.Forms.Label();
             this.DestinationFolderPathLabel = new System.Windows.Forms.Label();
             this.GoButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -44,6 +43,7 @@
             // 
             this.openFileDialog.FileName = "openFileDialog";
             this.openFileDialog.Filter = "DFF Files (*.dff)|*.dff";
+            this.openFileDialog.Multiselect = true;
             this.openFileDialog.RestoreDirectory = true;
             // 
             // SelectFileButton
@@ -53,9 +53,9 @@
             this.SelectFileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SelectFileButton.Location = new System.Drawing.Point(12, 36);
             this.SelectFileButton.Name = "SelectFileButton";
-            this.SelectFileButton.Size = new System.Drawing.Size(86, 23);
+            this.SelectFileButton.Size = new System.Drawing.Size(97, 23);
             this.SelectFileButton.TabIndex = 2;
-            this.SelectFileButton.Text = "Select DFF file";
+            this.SelectFileButton.Text = "Select DFF file(s)";
             this.SelectFileButton.UseVisualStyleBackColor = true;
             this.SelectFileButton.Click += new System.EventHandler(this.SelectFileButton_Click);
             // 
@@ -71,16 +71,6 @@
             this.SelectDestinationButton.Text = "Select Destination Folder";
             this.SelectDestinationButton.UseVisualStyleBackColor = true;
             this.SelectDestinationButton.Click += new System.EventHandler(this.SelectDestinationButton_Click);
-            // 
-            // SourceFilePathLabel
-            // 
-            this.SourceFilePathLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SourceFilePathLabel.BackColor = System.Drawing.SystemColors.Control;
-            this.SourceFilePathLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SourceFilePathLabel.Location = new System.Drawing.Point(104, 41);
-            this.SourceFilePathLabel.Name = "SourceFilePathLabel";
-            this.SourceFilePathLabel.Size = new System.Drawing.Size(292, 13);
-            this.SourceFilePathLabel.TabIndex = 3;
             // 
             // DestinationFolderPathLabel
             // 
@@ -143,7 +133,6 @@
             this.Controls.Add(this.Selectdff2dsfexePathButton);
             this.Controls.Add(this.GoButton);
             this.Controls.Add(this.DestinationFolderPathLabel);
-            this.Controls.Add(this.SourceFilePathLabel);
             this.Controls.Add(this.SelectDestinationButton);
             this.Controls.Add(this.SelectFileButton);
             this.DoubleBuffered = true;
@@ -163,7 +152,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button SelectFileButton;
         private System.Windows.Forms.Button SelectDestinationButton;
-        private System.Windows.Forms.Label SourceFilePathLabel;
         private System.Windows.Forms.Label DestinationFolderPathLabel;
         private System.Windows.Forms.Button GoButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;

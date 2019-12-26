@@ -38,36 +38,12 @@ namespace dff2dsfTool.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string sourcePath {
-            get {
-                return ((string)(this["sourcePath"]));
-            }
-            set {
-                this["sourcePath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string destinationPath {
             get {
                 return ((string)(this["destinationPath"]));
             }
             set {
                 this["destinationPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string sourceFileName {
-            get {
-                return ((string)(this["sourceFileName"]));
-            }
-            set {
-                this["sourceFileName"] = value;
             }
         }
     }
