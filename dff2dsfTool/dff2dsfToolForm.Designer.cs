@@ -55,7 +55,7 @@
             this.SelectFileButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SelectFileButton.Location = new System.Drawing.Point(12, 36);
             this.SelectFileButton.Name = "SelectFileButton";
-            this.SelectFileButton.Size = new System.Drawing.Size(126, 23);
+            this.SelectFileButton.Size = new System.Drawing.Size(133, 23);
             this.SelectFileButton.TabIndex = 2;
             this.SelectFileButton.Text = "Select DFF file(s)";
             this.SelectFileButton.UseVisualStyleBackColor = true;
@@ -67,7 +67,7 @@
             this.SelectDestinationButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SelectDestinationButton.Location = new System.Drawing.Point(12, 65);
             this.SelectDestinationButton.Name = "SelectDestinationButton";
-            this.SelectDestinationButton.Size = new System.Drawing.Size(126, 23);
+            this.SelectDestinationButton.Size = new System.Drawing.Size(133, 23);
             this.SelectDestinationButton.TabIndex = 4;
             this.SelectDestinationButton.Text = "Select Destination Folder";
             this.SelectDestinationButton.UseVisualStyleBackColor = true;
@@ -78,9 +78,9 @@
             this.DestinationFolderPathLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DestinationFolderPathLabel.BackColor = System.Drawing.SystemColors.Control;
             this.DestinationFolderPathLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DestinationFolderPathLabel.Location = new System.Drawing.Point(144, 70);
+            this.DestinationFolderPathLabel.Location = new System.Drawing.Point(147, 70);
             this.DestinationFolderPathLabel.Name = "DestinationFolderPathLabel";
-            this.DestinationFolderPathLabel.Size = new System.Drawing.Size(252, 13);
+            this.DestinationFolderPathLabel.Size = new System.Drawing.Size(249, 13);
             this.DestinationFolderPathLabel.TabIndex = 5;
             this.DestinationFolderPathLabel.Click += new System.EventHandler(this.DestinationFolderPathLabel_Click);
             this.DestinationFolderPathLabel.MouseHover += new System.EventHandler(this.DestinationFolderPathLabel_MouseHover);
@@ -101,9 +101,9 @@
             this.dff2dsfexePathLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dff2dsfexePathLabel.BackColor = System.Drawing.SystemColors.Control;
             this.dff2dsfexePathLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dff2dsfexePathLabel.Location = new System.Drawing.Point(144, 12);
+            this.dff2dsfexePathLabel.Location = new System.Drawing.Point(147, 12);
             this.dff2dsfexePathLabel.Name = "dff2dsfexePathLabel";
-            this.dff2dsfexePathLabel.Size = new System.Drawing.Size(252, 13);
+            this.dff2dsfexePathLabel.Size = new System.Drawing.Size(249, 13);
             this.dff2dsfexePathLabel.TabIndex = 1;
             this.dff2dsfexePathLabel.Click += new System.EventHandler(this.dff2dsfexePathLabel_Click);
             this.dff2dsfexePathLabel.MouseHover += new System.EventHandler(this.dff2dsfexePathLabel_MouseHover);
@@ -111,11 +111,10 @@
             // Selectdff2dsfexePathButton
             // 
             this.Selectdff2dsfexePathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Selectdff2dsfexePathButton.AutoSize = true;
             this.Selectdff2dsfexePathButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Selectdff2dsfexePathButton.Location = new System.Drawing.Point(12, 7);
             this.Selectdff2dsfexePathButton.Name = "Selectdff2dsfexePathButton";
-            this.Selectdff2dsfexePathButton.Size = new System.Drawing.Size(126, 23);
+            this.Selectdff2dsfexePathButton.Size = new System.Drawing.Size(133, 23);
             this.Selectdff2dsfexePathButton.TabIndex = 0;
             this.Selectdff2dsfexePathButton.Text = "Select dff2dsf.exe path";
             this.Selectdff2dsfexePathButton.UseVisualStyleBackColor = true;
@@ -132,9 +131,9 @@
             this.SelectFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.SelectFileLabel.BackColor = System.Drawing.SystemColors.Control;
             this.SelectFileLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SelectFileLabel.Location = new System.Drawing.Point(144, 41);
+            this.SelectFileLabel.Location = new System.Drawing.Point(147, 41);
             this.SelectFileLabel.Name = "SelectFileLabel";
-            this.SelectFileLabel.Size = new System.Drawing.Size(252, 13);
+            this.SelectFileLabel.Size = new System.Drawing.Size(249, 13);
             this.SelectFileLabel.TabIndex = 7;
             this.SelectFileLabel.Click += new System.EventHandler(this.SelectFileLabel_Click);
             this.SelectFileLabel.MouseHover += new System.EventHandler(this.SelectFileLabel_MouseHover);
@@ -160,7 +159,6 @@
             this.Text = "dff2dsf Tool";
             this.Load += new System.EventHandler(this.dff2dsfToolForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
