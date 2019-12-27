@@ -99,5 +99,32 @@ namespace dff2dsfTool
             }
             catch (NullReferenceException) { }
         }
+
+        private void dff2dsfexePathLabel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("explorer.exe", "/select," + exePath);
+            }
+            catch (NullReferenceException) { }
+        }
+
+        private void SelectFileLabel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("explorer.exe", "/select," + sourcePath[0]);
+            }
+            catch (NullReferenceException) { }
+        }
+
+        private void DestinationFolderPathLabel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(destinationPath);
+            }
+            catch (NullReferenceException) { }
+        }
     }
 }

@@ -82,6 +82,7 @@
             this.DestinationFolderPathLabel.Name = "DestinationFolderPathLabel";
             this.DestinationFolderPathLabel.Size = new System.Drawing.Size(252, 13);
             this.DestinationFolderPathLabel.TabIndex = 5;
+            this.DestinationFolderPathLabel.Click += new System.EventHandler(this.DestinationFolderPathLabel_Click);
             this.DestinationFolderPathLabel.MouseHover += new System.EventHandler(this.DestinationFolderPathLabel_MouseHover);
             // 
             // GoButton
@@ -104,6 +105,7 @@
             this.dff2dsfexePathLabel.Name = "dff2dsfexePathLabel";
             this.dff2dsfexePathLabel.Size = new System.Drawing.Size(252, 13);
             this.dff2dsfexePathLabel.TabIndex = 1;
+            this.dff2dsfexePathLabel.Click += new System.EventHandler(this.dff2dsfexePathLabel_Click);
             this.dff2dsfexePathLabel.MouseHover += new System.EventHandler(this.dff2dsfexePathLabel_MouseHover);
             // 
             // Selectdff2dsfexePathButton
@@ -134,6 +136,7 @@
             this.SelectFileLabel.Name = "SelectFileLabel";
             this.SelectFileLabel.Size = new System.Drawing.Size(252, 13);
             this.SelectFileLabel.TabIndex = 7;
+            this.SelectFileLabel.Click += new System.EventHandler(this.SelectFileLabel_Click);
             this.SelectFileLabel.MouseHover += new System.EventHandler(this.SelectFileLabel_MouseHover);
             // 
             // dff2dsfToolForm
