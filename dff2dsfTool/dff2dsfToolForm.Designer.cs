@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SelectFileButton = new System.Windows.Forms.Button();
             this.SelectDestinationButton = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.Selectdff2dsfexePathButton = new System.Windows.Forms.Button();
             this.openFileDialog0 = new System.Windows.Forms.OpenFileDialog();
             this.SelectFileLabel = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -80,6 +82,7 @@
             this.DestinationFolderPathLabel.Name = "DestinationFolderPathLabel";
             this.DestinationFolderPathLabel.Size = new System.Drawing.Size(252, 13);
             this.DestinationFolderPathLabel.TabIndex = 5;
+            this.DestinationFolderPathLabel.MouseHover += new System.EventHandler(this.DestinationFolderPathLabel_MouseHover);
             // 
             // GoButton
             // 
@@ -101,6 +104,7 @@
             this.dff2dsfexePathLabel.Name = "dff2dsfexePathLabel";
             this.dff2dsfexePathLabel.Size = new System.Drawing.Size(252, 13);
             this.dff2dsfexePathLabel.TabIndex = 1;
+            this.dff2dsfexePathLabel.MouseHover += new System.EventHandler(this.dff2dsfexePathLabel_MouseHover);
             // 
             // Selectdff2dsfexePathButton
             // 
@@ -130,6 +134,7 @@
             this.SelectFileLabel.Name = "SelectFileLabel";
             this.SelectFileLabel.Size = new System.Drawing.Size(252, 13);
             this.SelectFileLabel.TabIndex = 7;
+            this.SelectFileLabel.MouseHover += new System.EventHandler(this.SelectFileLabel_MouseHover);
             // 
             // dff2dsfToolForm
             // 
@@ -168,6 +173,7 @@
         private System.Windows.Forms.Button Selectdff2dsfexePathButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog0;
         private System.Windows.Forms.Label SelectFileLabel;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

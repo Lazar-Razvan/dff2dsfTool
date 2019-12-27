@@ -53,12 +53,51 @@ namespace dff2dsfTool
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            foreach (var item in sourcePath)
+            try
             {
-                string item0 = Regex.Replace(item, @"^(.*)\\", "");
-                cmdArgs = "/K " + exePath + " \"" + item + "\" \"" + destinationPath + "\\" + item0.Replace("dff", "dsf") + "\"";
-                Process.Start("cmd.exe", cmdArgs);
+                foreach (var item in sourcePath)
+                {
+                    string item0 = Regex.Replace(item, @"^(.*)\\", "");
+                    cmdArgs = "/K " + exePath + " \"" + item + "\" \"" + destinationPath + "\\" + item0.Replace("dff", "dsf") + "\"";
+                    Process.Start("cmd.exe", cmdArgs);
+                }
             }
+            catch (NullReferenceException) { }
+        }
+
+        private void SelectFileLabel_MouseHover(object sender, EventArgs e)
+        {
+            string labelPath = string.Empty;
+            try
+            {
+                if (sourcePath.Length == 1)
+                    toolTip.SetToolTip(SelectFileLabel, sourcePath[0]);
+                else
+                    foreach (var item in sourcePath)
+                    {
+                        labelPath = labelPath + item + "\n";
+                        toolTip.SetToolTip(SelectFileLabel, labelPath);
+                    }
+            }
+            catch (NullReferenceException) { }
+        }
+
+        private void dff2dsfexePathLabel_MouseHover(object sender, EventArgs e)
+        {
+            try
+            {
+                toolTip.SetToolTip(dff2dsfexePathLabel, exePath);
+            }
+            catch (NullReferenceException) { }
+        }
+
+        private void DestinationFolderPathLabel_MouseHover(object sender, EventArgs e)
+        {
+            try
+            {
+                toolTip.SetToolTip(DestinationFolderPathLabel, destinationPath);
+            }
+            catch (NullReferenceException) { }
         }
     }
 }
