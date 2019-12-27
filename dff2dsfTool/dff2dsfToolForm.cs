@@ -39,7 +39,11 @@ namespace dff2dsfTool
         private void SelectFileButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK) sourcePath = openFileDialog.FileNames;
-            SelectFileLabel.Text = sourcePath.Length == 1 ? sourcePath[0] : "Multiple files selected";
+            try
+            {
+                SelectFileLabel.Text = sourcePath.Length == 1 ? sourcePath[0] : "Multiple files selected";
+            }
+            catch (NullReferenceException) { }
         }
 
         private void SelectDestinationButton_Click(object sender, EventArgs e)
