@@ -9,4 +9,4 @@ The reason I made this tool is to speed up the process of using their tool and a
 
 *Select Destination Folder* - Select the folder where you want the files to go. Its path will be displayed on the left label. Note that you can click the label in order to open the path in the explorer.
 
-*Go* - Use the above provided paths to run the dff2dsf program. Note that if you have selected multiple files, multiple cmd windows will open.
+*Go* - Use the above provided paths to run the dff2dsf program.
