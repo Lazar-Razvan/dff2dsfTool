@@ -12,19 +12,28 @@ namespace dff2dsfTool
         private string[] sourcePath;
         private string destinationPath;
         private string cmdArgs;
+        private bool hasRun;
 
         public dff2dsfToolForm()
         {
-            FormBorderStyle = FormBorderStyle.FixedDialog;
             InitializeComponent();
         }
 
         private void dff2dsfToolForm_Load(object sender, EventArgs e)
         {
-            exePath                         = Settings.Default["exePath"].ToString();
-            destinationPath                 = Settings.Default["destinationPath"].ToString();
-            dff2dsfexePathLabel.Text        = Settings.Default["exePath"].ToString();
-            DestinationFolderPathLabel.Text = Settings.Default["destinationPath"].ToString();
+            if (!string.IsNullOrEmpty(Settings.Default.exePath))
+            {
+                exePath                  = Settings.Default["exePath"].ToString();
+                dff2dsfexePathLabel.Text = Settings.Default["exePath"].ToString();
+                LogBox.AppendText("Loaded dff2dsf.exe path from settings: " + Settings.Default.exePath + "\n");
+            }
+            if (!string.IsNullOrEmpty(Settings.Default.destinationPath))
+            {
+                destinationPath                 = Settings.Default["destinationPath"].ToString();
+                DestinationFolderPathLabel.Text = Settings.Default["destinationPath"].ToString();
+                LogBox.AppendText("Loaded destination folder path from settings: " + Settings.Default.destinationPath +
+                                  "\n\n");
+            }
         }
 
         private void Selectdff2dsfexePathButton_Click(object sender, EventArgs e)
@@ -57,16 +66,37 @@ namespace dff2dsfTool
 
         private void GoButton_Click(object sender, EventArgs e)
         {
+            string time = "[" + DateTime.Now.TimeOfDay.ToString().Substring(0, 8) + "] ";
+
+            if (hasRun) LogBox.AppendText("\n\n");
+
             try
             {
                 foreach (var item in sourcePath)
                 {
                     string item0 = Regex.Replace(item, @"^(.*)\\", "");
-                    cmdArgs = "/K " + exePath + " \"" + item + "\" \"" + destinationPath + "\\" + item0.Replace("dff", "dsf") + "\"";
-                    Process.Start("cmd.exe", cmdArgs);
+                    cmdArgs = "/c " + exePath + " \"" + item + "\" \"" + destinationPath + "\\" + item0.Replace("dff", "dsf") + "\"";
+
+                    var p = new ProcessStartInfo("cmd.exe")
+                    {
+                        Arguments = cmdArgs,
+                        UseShellExecute = false,
+                        RedirectStandardError = true,
+                        CreateNoWindow = true,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    };
+                    var process = Process.Start(p);
+                    string error = process?.StandardError.ReadLine();
+
+                    if (error != null && error.Contains("error"))
+                        LogBox.AppendText(time + error);
+                    else
+                        LogBox.AppendText(time + "Converted: " + item + "\n");
                 }
             }
             catch (NullReferenceException) { }
+
+            hasRun = true;
         }
 
         private void SelectFileLabel_MouseHover(object sender, EventArgs e)
