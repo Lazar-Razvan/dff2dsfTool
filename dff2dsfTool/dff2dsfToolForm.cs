@@ -160,5 +160,10 @@ namespace dff2dsfTool
             }
             catch (NullReferenceException) { }
         }
+
+        private void LogBoxContextMenuClear_Click(object sender, EventArgs e)
+        {
+            LogBox.Clear();
+        }
     }
 }

@@ -41,6 +41,9 @@
             this.SelectFileLabel = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.LogBox = new System.Windows.Forms.RichTextBox();
+            this.LogBoxContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.LogBoxContextMenuClear = new System.Windows.Forms.ToolStripMenuItem();
+            this.LogBoxContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -144,6 +147,7 @@
             this.LogBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogBox.ContextMenuStrip = this.LogBoxContextMenu;
             this.LogBox.Location = new System.Drawing.Point(12, 121);
             this.LogBox.Name = "LogBox";
             this.LogBox.ReadOnly = true;
@@ -151,6 +155,20 @@
             this.LogBox.TabIndex = 8;
             this.LogBox.Text = "";
             this.LogBox.WordWrap = false;
+            // 
+            // LogBoxContextMenu
+            // 
+            this.LogBoxContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LogBoxContextMenuClear});
+            this.LogBoxContextMenu.Name = "LogBoxContextMenu";
+            this.LogBoxContextMenu.Size = new System.Drawing.Size(102, 26);
+            // 
+            // LogBoxContextMenuClear
+            // 
+            this.LogBoxContextMenuClear.Name = "LogBoxContextMenuClear";
+            this.LogBoxContextMenuClear.Size = new System.Drawing.Size(180, 22);
+            this.LogBoxContextMenuClear.Text = "Clear";
+            this.LogBoxContextMenuClear.Click += new System.EventHandler(this.LogBoxContextMenuClear_Click);
             // 
             // dff2dsfToolForm
             // 
@@ -173,6 +191,7 @@
             this.ShowIcon = false;
             this.Text = "dff2dsf Tool";
             this.Load += new System.EventHandler(this.dff2dsfToolForm_Load);
+            this.LogBoxContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -191,6 +210,8 @@
         private System.Windows.Forms.Label SelectFileLabel;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.RichTextBox LogBox;
+        private System.Windows.Forms.ContextMenuStrip LogBoxContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem LogBoxContextMenuClear;
     }
 }
 
