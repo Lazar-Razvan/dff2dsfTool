@@ -23,14 +23,14 @@ namespace dff2dsfTool
         {
             if (!string.IsNullOrEmpty(Settings.Default.exePath))
             {
-                exePath                  = Settings.Default["exePath"].ToString();
-                dff2dsfexePathLabel.Text = Settings.Default["exePath"].ToString();
+                exePath                  = Settings.Default.exePath;
+                dff2dsfexePathLabel.Text = Settings.Default.exePath;
                 LogBox.AppendText("Loaded dff2dsf.exe path from settings: " + Settings.Default.exePath + "\n");
             }
             if (!string.IsNullOrEmpty(Settings.Default.destinationPath))
             {
-                destinationPath                 = Settings.Default["destinationPath"].ToString();
-                DestinationFolderPathLabel.Text = Settings.Default["destinationPath"].ToString();
+                destinationPath                 = Settings.Default.destinationPath;
+                DestinationFolderPathLabel.Text = Settings.Default.destinationPath;
                 LogBox.AppendText("Loaded destination folder path from settings: " + Settings.Default.destinationPath +
                                   "\n\n");
             }
@@ -41,7 +41,7 @@ namespace dff2dsfTool
             if (openFileDialog0.ShowDialog() == DialogResult.OK) exePath = openFileDialog0.FileName;
 
             dff2dsfexePathLabel.Text = exePath;
-            Settings.Default["exePath"] = exePath;
+            Settings.Default.exePath = exePath;
             Settings.Default.Save();
         }
 
@@ -59,8 +59,8 @@ namespace dff2dsfTool
         {
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK) destinationPath = folderBrowserDialog.SelectedPath;
 
-            DestinationFolderPathLabel.Text = destinationPath;
-            Settings.Default["destinationPath"] = destinationPath;
+            DestinationFolderPathLabel.Text  = destinationPath;
+            Settings.Default.destinationPath = destinationPath;
             Settings.Default.Save();
         }
 
