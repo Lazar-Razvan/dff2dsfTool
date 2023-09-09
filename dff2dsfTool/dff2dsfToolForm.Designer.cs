@@ -155,6 +155,7 @@
             this.LogBox.TabIndex = 8;
             this.LogBox.Text = "";
             this.LogBox.WordWrap = false;
+            this.LogBox.TextChanged += new System.EventHandler(this.LogBox_TextChanged);
             // 
             // LogBoxContextMenu
             // 
@@ -166,7 +167,7 @@
             // LogBoxContextMenuClear
             // 
             this.LogBoxContextMenuClear.Name = "LogBoxContextMenuClear";
-            this.LogBoxContextMenuClear.Size = new System.Drawing.Size(180, 22);
+            this.LogBoxContextMenuClear.Size = new System.Drawing.Size(101, 22);
             this.LogBoxContextMenuClear.Text = "Clear";
             this.LogBoxContextMenuClear.Click += new System.EventHandler(this.LogBoxContextMenuClear_Click);
             // 

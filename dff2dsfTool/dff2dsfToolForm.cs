@@ -75,23 +75,42 @@ namespace dff2dsfTool
                 foreach (var item in sourcePath)
                 {
                     string item0 = Regex.Replace(item, @"^(.*)\\", "");
-                    cmdArgs = "/c " + exePath + " \"" + item + "\" \"" + destinationPath + "\\" + item0.Replace("dff", "dsf") + "\"";
+                    string errorOutput = null;
+                    int errorLineCount = 0;
+                    bool convertedTextAppended = false;
 
-                    var p = new ProcessStartInfo("cmd.exe")
+                    cmdArgs = "/c  @\"" + exePath + "\" \"" + item + "\" \"" + destinationPath + "\\" + item0.Replace("dff", "dsf") + "\"";
+
+                    var process = new Process();
+                    process.StartInfo.FileName = "cmd.exe";
+                    process.StartInfo.Arguments = cmdArgs;
+                    process.StartInfo.RedirectStandardError = true;
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.CreateNoWindow = true;
+                    process.ErrorDataReceived += (outputSender, outputArgs) =>
                     {
-                        Arguments = cmdArgs,
-                        UseShellExecute = false,
-                        RedirectStandardError = true,
-                        CreateNoWindow = true,
-                        WindowStyle = ProcessWindowStyle.Hidden
-                    };
-                    var process = Process.Start(p);
-                    string error = process?.StandardError.ReadLine();
+                        if (!string.IsNullOrEmpty(outputArgs.Data))
+                        {
+                            errorLineCount++;
 
-                    if (error != null && error.Contains("error"))
-                        LogBox.AppendText(time + error);
-                    else
-                        LogBox.AppendText(time + "Converted: " + item + "\n");
+                            if (errorLineCount == 3) errorOutput = outputArgs.Data;
+                        }
+                        else if (!convertedTextAppended && errorLineCount == 2)
+                            LogBox.BeginInvoke((Action)(() =>
+                            {
+                                LogBox.AppendText(time + "Converted: " + item + "\n\n");
+                                convertedTextAppended = true;
+                            }));
+                    };
+                    process.Start();
+                    process.BeginErrorReadLine();
+                    process.WaitForExit();
+
+                    if (!string.IsNullOrEmpty(errorOutput))
+                        LogBox.BeginInvoke((Action)(() =>
+                        {
+                            LogBox.AppendText("File \"" + item + "\" could not be converted:\n" + errorOutput + "\n\n");
+                        }));
                 }
             }
             catch (NullReferenceException) { }
@@ -164,6 +183,10 @@ namespace dff2dsfTool
         private void LogBoxContextMenuClear_Click(object sender, EventArgs e)
         {
             LogBox.Clear();
+        }
+
+        private void LogBox_TextChanged(object sender, EventArgs e) {
+            LogBox.ScrollToCaret();
         }
     }
 }
